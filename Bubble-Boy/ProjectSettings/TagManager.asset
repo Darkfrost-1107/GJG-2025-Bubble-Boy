@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Entity
   - CheckPoint
+  - Background
+  - Frontground
+  - Bubble
   layers:
   - Default
   - TransparentFX
@@ -42,4 +45,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1085735291
+    locked: 0
+  - name: Foreground
+    uniqueID: 1709354167
+    locked: 0
+  - name: Frontground
+    uniqueID: 2480862951
     locked: 0

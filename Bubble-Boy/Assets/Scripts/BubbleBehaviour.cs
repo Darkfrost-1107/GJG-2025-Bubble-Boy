@@ -9,6 +9,10 @@ public class BubbleBehaviour : MonoBehaviour
     public float speed = 5;
     public float MAX_FORCE_ALLOWED = 3f;
     public float MAX_SPEED_ALLOWED = 0.1f;
+    public int MAX_HEAT_ALLOWED = 5;
+
+
+    public int heat = 0;
 
     void Start()
     {
@@ -26,6 +30,16 @@ public class BubbleBehaviour : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void Heat(){
+        this.heat += 1;
+        if(this.heat >= MAX_HEAT_ALLOWED){
+            Pop();
+        }
+    }
+
+    public void Freeze(){
+        this.heat -= 1;
+    }
     public void move(Vector2 direction){
         rb.AddForce(direction * speed * Time.deltaTime);
         // Debug.Log("Fuerza en la BB :" + rb.totalForce.magnitude);
