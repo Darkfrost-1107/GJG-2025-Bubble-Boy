@@ -22,7 +22,8 @@ public class ObjectFactory : MonoBehaviour
         if(template == null){
             return;
         }
-        Instantiate(template, transform.position, Quaternion.identity);
+        GameObject b = Instantiate(template, transform.position, Quaternion.identity);
+        b.SetActive(true);
     }
 
     public async void CreateObject(int delay){

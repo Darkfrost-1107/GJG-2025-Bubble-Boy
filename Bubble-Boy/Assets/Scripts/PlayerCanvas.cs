@@ -6,6 +6,9 @@ public class PlayerCanvas : MonoBehaviour
 {
     // Start is called before the first frame update
     static public PlayerCanvas instance;
+    public GameObject player;
+    public GameObject Inicio;
+    public GameObject Fin;
     public Slider powerSlider;
     public Slider speedSlider;
     void Start()
@@ -24,6 +27,15 @@ public class PlayerCanvas : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void StartGame(){
+        player.SetActive(true);
+        Inicio.SetActive(false);
+    }
+
+    public void EndGame(){
+        Fin.SetActive(true);
     }
 
     public void SetPower(float max, float current){

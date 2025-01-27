@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 public class BubbleBehaviour : MonoBehaviour
 {
@@ -11,11 +12,14 @@ public class BubbleBehaviour : MonoBehaviour
     public float MAX_SPEED_ALLOWED = 0.1f;
     public int MAX_HEAT_ALLOWED = 5;
 
+    Animator anim;
+
 
     public int heat = 0;
 
     void Start()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -25,8 +29,10 @@ public class BubbleBehaviour : MonoBehaviour
         
     }
 
-    public void Pop(){
+    public async void Pop(){
         Debug.Log("Bubble popped");
+        anim.SetBool("dead", true);
+        await UniTask.Delay(500);
         Destroy(gameObject);
     }
 
